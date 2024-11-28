@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased text-gray-900 dark:text-white;
+    @apply font-mono;
+  }
+}
+
+.vertical-timeline-element-content {
+  @apply dark:bg-gray-800 dark:text-white;
+}
+
+.vertical-timeline-element-date {
+  @apply dark:text-gray-300;
+}
+.highlight {
+  color: #64ffda;
+}
+.nav-link {
+  @apply dark:text-white text-black ;
+  margin-right: 20px;
+}
+.nav-link:hover {
+  @apply text-indigo-600 duration-500
+}
+.button {
+  padding: 10px 20px;
+  border-radius: 4px;
+  @apply bg-indigo-600 text-white
+}
+.button:hover {
+  background-color: rgba(100, 255, 218, 0.1);
+}
