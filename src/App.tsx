@@ -4,6 +4,7 @@ import Contact from './components/Contact'
 import ThemeToggle from './components/ThemeToggle'
 import HeroLanding from './components/HeroLanding'
 import Tech from './components/About'
+import SocialButtons from './components/SocialButtons'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Experience />
       <Projects />
       <Contact />
+      <SocialButtons />
       <ThemeToggle />
     </div>
   )
