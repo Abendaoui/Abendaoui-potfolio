@@ -7,19 +7,19 @@ import 'react-vertical-timeline-component/style.min.css'
 
 const experiences = [
   {
-    title: 'Web Developer Intern',
+    title: 'Back-End Developer Intern',
     company: 'RSDigital',
     date: 'May 2024 - July 2024',
     description:
-      'Developed and maintained multiple client projects using React, Express, and MongoDB. Improved application performance by 40%.',
+      'Developed a web application for an online pharmacy using the MERN stack. My role focused on building the RESTful API with Node.js and Express.js, enabling functionalities like order placement, delivery tracking, and more.',
     logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1dMKE_kZWpMbSJ-QBDCAcvc3fBkPq36emIw&s',
   },
   {
-    title: 'Back-End Developer Intern',
+    title: 'Web Developer Intern',
     company: 'SNZCOM',
     date: 'June 2023 - July 2023',
     description:
-      'Led development of enterprise applications using React, Node.js, and AWS. Implemented CI/CD pipelines and mentored junior developers.',
+      'build an online manga store using Laravel, a PHP web framework. My responsibilities included building functionalities for browsing, searching, and purchasing manga titles, while also ensuring a smooth user experience.',
     logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYSpzTvrr2mTPW3kIS2FIncuqwZpbVfz6ayw&s',
   },
 ]
@@ -63,7 +63,7 @@ export default function Experience() {
                 <h4 className='vertical-timeline-element-subtitle text-indigo-600 mt-2'>
                   {experience.company}
                 </h4>
-                <p className='text-gray-600 mt-4'>{experience.description}</p>
+                <p className='text-gray-600 mt-4 capitalize'>{experience.description}</p>
               </VerticalTimelineElement>
             ))}
           </VerticalTimeline>

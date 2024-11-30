@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import { Mail, MapPin, Phone,Linkedin } from 'lucide-react';
+import { motion } from 'framer-motion'
+import { Mail, MapPin, Phone, Linkedin } from 'lucide-react'
 
 export default function Contact() {
   return (
@@ -28,7 +28,7 @@ export default function Contact() {
                 </div>
                 <div className='flex items-center gap-4 text-gray-600 dark:text-gray-300'>
                   <Linkedin className='w-5 h-5 text-indigo-600 dark:text-indigo-400' />
-                  <span>Adil Bendaoui</span>
+                  <span title='' >Adil Bendaoui</span>
                 </div>
                 <div className='flex items-center gap-4 text-gray-600 dark:text-gray-300'>
                   <Phone className='w-5 h-5 text-indigo-600 dark:text-indigo-400' />
