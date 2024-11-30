@@ -35,6 +35,4 @@
   border-radius: 4px;
   @apply bg-indigo-600 text-white
 }
-.button:hover {
-  background-color: rgba(100, 255, 218, 0.1);
-}
+
