@@ -1,7 +1,32 @@
+import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, MapPin, Phone, Linkedin } from 'lucide-react'
-
+import emailjs from 'emailjs-com'
 export default function Contact() {
+  const formRef = useRef(null) // Ref for the form element
+  const [isSending, setIsSending] = useState(false)
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setIsSending(true) // Set sending state to show a loading indicator
+
+    emailjs
+      .sendForm(
+        'service_ttc8xha', // Replace with your service ID
+        'template_yrtct8f', // Replace with your template ID
+        formRef.current,
+        'CeVT4glokmFoqEtdc' // Replace with your user ID
+      )
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text)
+        setIsSending(false) // Reset sending state after successful submission
+        alert('Message sent successfully!') // Show a success message to the user
+        formRef.current.reset()
+      })
+      .catch((err) => {
+        console.error(err)
+        setIsSending(false) // Reset sending state after an error
+      })
+  }
   return (
     <section id='contact' className='py-20 bg-gray-50 dark:bg-gray-800'>
       <div className='container mx-auto px-4'>
@@ -28,7 +53,7 @@ export default function Contact() {
                 </div>
                 <div className='flex items-center gap-4 text-gray-600 dark:text-gray-300'>
                   <Linkedin className='w-5 h-5 text-indigo-600 dark:text-indigo-400' />
-                  <span title='' >Adil Bendaoui</span>
+                  <span title=''>Adil Bendaoui</span>
                 </div>
                 <div className='flex items-center gap-4 text-gray-600 dark:text-gray-300'>
                   <Phone className='w-5 h-5 text-indigo-600 dark:text-indigo-400' />
@@ -42,7 +67,7 @@ export default function Contact() {
             </div>
 
             <div>
-              <form className='space-y-4'>
+              <form ref={formRef} className='space-y-4' onSubmit={handleSubmit}>
                 <div>
                   <label
                     htmlFor='name'
@@ -53,6 +78,7 @@ export default function Contact() {
                   <input
                     type='text'
                     id='name'
+                    name='user_name'
                     className='w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500'
                   />
                 </div>
@@ -66,6 +92,7 @@ export default function Contact() {
                   <input
                     type='email'
                     id='email'
+                    name='user_email'
                     className='w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500'
                   />
                 </div>
@@ -79,6 +106,7 @@ export default function Contact() {
                   <textarea
                     id='message'
                     rows={4}
+                    name='message'
                     className='w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500'
                   ></textarea>
                 </div>
@@ -86,7 +114,7 @@ export default function Contact() {
                   type='submit'
                   className='w-full bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-indigo-700 transition-colors'
                 >
-                  Send Message
+                  {isSending ? 'Sending' : 'Send Message'}
                 </button>
               </form>
             </div>
